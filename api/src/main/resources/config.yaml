@@ -1,0 +1,16 @@
+kumuluzee:
+  name: rso-stats
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8082
+    http:
+      port: 8082
+  datasources:
+    - jndi-name: jdbc/StatsDS
+      connection-url: jdbc:postgresql://localhost:5433/rso-stats
+#      connection-url: jdbc:postgresql://host.docker.internal:5433/rso-stats
+      username: postgres
+      password: postgres
+      max-pool-size: 20
