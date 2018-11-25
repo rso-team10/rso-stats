@@ -1,5 +1,5 @@
 #Stop all containers
-docker stop $(docker ps -a -q)
+#docker stop $(docker ps -a -q)
 
 #Remove containers
 #docker rm postgres-stats
@@ -9,9 +9,9 @@ docker stop $(docker ps -a -q)
 #docker rmi stats
 
 #DB
-docker run --network="host" -d -e POSTGRES_USERNAME=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=rso-stats -p 5432:5433 postgres:latest
+docker run -d -e POSTGRES_USERNAME=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=rso-stats -p 5433:5432 postgres:latest
 
 #MicroService
 mvn clean package
 docker build -t stats .
-docker run --network="host" -p 8082:8082 stats
+docker run --name rso-stats -p 8082:8082 stats
