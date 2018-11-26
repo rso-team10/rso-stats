@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stats
+  labels:
+    app: stats
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stats
+  template:
+    metadata:
+      labels:
+        app: stats
+    spec:
+      containers:
+        - image: kozeljko/stats
+          name: stats
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://postgre:5432/rso-stats
+          ports:
+            - containerPort: 8082
+              name: stats
