@@ -4,13 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.Instant;
+import java.util.Date;
 
 @Entity
-public class ListenInstance {
+public class UploadDate {
+
     private Long id;
     private Long trackId;
-    private Long userId;
+    private Date uploadDate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +31,11 @@ public class ListenInstance {
         this.trackId = trackId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Date getUploadDate() {
+        return uploadDate;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUploadDate(Date uploadDate) {
+        this.uploadDate = uploadDate;
     }
 }

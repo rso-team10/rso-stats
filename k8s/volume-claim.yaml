@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postgresql-volume
+  name: postgresql-volume-stats
 spec:
   accessModes:
     - ReadWriteOnce

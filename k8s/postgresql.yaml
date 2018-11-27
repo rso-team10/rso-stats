@@ -1,22 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: postgre
+  name: postgre-stats
   labels:
-    app: postgre
+    app: postgre-stats
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgre
+      app: postgre-stats
   template:
     metadata:
       labels:
-        app: postgre
+        app: postgre-stats
     spec:
       containers:
         - image: postgres:latest
-          name: postgre
+          name: postgre-stats
           env:
             - name: POSTGRES_USERNAME
               value: postgres
@@ -26,11 +26,11 @@ spec:
               value: rso-stats
           ports:
             - containerPort: 5432
-              name: postgre
+              name: postgre-stats
           volumeMounts:
             - name: persistant-storage
               mountPath: /var/lib/postgresql
       volumes:
         - name: persistant-storage
           persistentVolumeClaim:
-            claimName: postgresql-volume
+            claimName: postgresql-volume-stats

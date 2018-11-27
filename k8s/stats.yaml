@@ -19,7 +19,7 @@ spec:
           name: stats
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://postgre:5432/rso-stats
+              value: jdbc:postgresql://postgre-stats:5432/rso-stats
           ports:
             - containerPort: 8082
               name: stats
