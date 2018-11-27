@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
 
 
 @RequestScoped
@@ -23,6 +24,7 @@ public class UploadResource {
 
     @POST
     public Response addUpload(UploadDate uploadDate) {
+        uploadDate.setUploadDate(new Date());
         if (uploadService.addEntity(uploadDate)) {
             return Response.ok(uploadDate).build();
         } else {
