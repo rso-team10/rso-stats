@@ -48,4 +48,13 @@ public class ListenResource {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }
+
+    @POST
+    public Response addListen(ListenInstance listenInstance) {
+        if(listenService.addEntity(listenInstance)) {
+            return Response.ok(listenInstance).build();
+        } else {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
 }

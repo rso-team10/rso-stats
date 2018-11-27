@@ -7,6 +7,7 @@ services:
       - "8082:8082"
     environment:
       - KUMULUZEE_SERVER_BASEURL=http://${DOCKER_HOST_IP}:8082
+      - KUMULUZEE_DATASOURCES0_CONNECTIONURL=jdbc:postgresql://${DOCKER_HOST_IP}:5433/rso-stats
     depends_on:
       - "stats-db"
   stats-db:
