@@ -34,6 +34,10 @@
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.kumuluz.ee.discovery</groupId>
             <artifactId>kumuluzee-discovery-etcd</artifactId>
             <version>${kumuluzee-discovery.version}</version>

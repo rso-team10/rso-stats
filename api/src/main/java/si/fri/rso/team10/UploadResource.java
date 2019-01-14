@@ -1,5 +1,7 @@
 package si.fri.rso.team10;
 
+import com.kumuluz.ee.logs.cdi.Log;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -12,6 +14,7 @@ import java.util.Date;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("upload")
+@Log
 public class UploadResource {
 
     @Inject

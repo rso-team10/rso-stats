@@ -1,5 +1,6 @@
 package si.fri.rso.team10;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.rso.team10.dto.TrackCount;
 
 import javax.enterprise.context.RequestScoped;
@@ -13,6 +14,7 @@ import java.util.Comparator;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("listen")
+@Log
 public class ListenResource {
 
     @Inject
