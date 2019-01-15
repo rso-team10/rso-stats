@@ -22,7 +22,8 @@ public class UploadResource {
 
     @GET
     public Response getUploadDates() {
-        return Response.ok(uploadService.getUploadDates()).build();
+        return Response.ok(uploadService.getUploadDates()).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
     }
 
     @POST
