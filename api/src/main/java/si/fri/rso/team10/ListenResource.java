@@ -22,7 +22,8 @@ public class ListenResource {
 
     @GET
     public Response getAllCounts() {
-        return Response.ok(listenService.getTrackCounts()).build();
+        return Response.ok(listenService.getTrackCounts()).header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
     }
 
     @GET
@@ -32,7 +33,8 @@ public class ListenResource {
                 listenService.getTrackCounts().stream().max(Comparator.comparing(TrackCount::getListenCount)).orElse(null);
 
         if (trackCount != null) {
-            return Response.ok(trackCount).build();
+            return Response.ok(trackCount).header("Access-Control-Allow-Origin", "*")
+                    .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -45,7 +47,8 @@ public class ListenResource {
             var targetId = Long.parseLong(trackId);
             var count = listenService.getListenCount(targetId);
 
-            return Response.ok(new TrackCount(targetId, count)).build();
+            return Response.ok(new TrackCount(targetId, count)).header("Access-Control-Allow-Origin", "*")
+                    .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
         } catch (NumberFormatException e) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
@@ -53,7 +56,7 @@ public class ListenResource {
 
     @POST
     public Response addListen(ListenInstance listenInstance) {
-        if(listenService.addEntity(listenInstance)) {
+        if (listenService.addEntity(listenInstance)) {
             return Response.ok(listenInstance).build();
         } else {
             return Response.status(Response.Status.BAD_REQUEST).build();
